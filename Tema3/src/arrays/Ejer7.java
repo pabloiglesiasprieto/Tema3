@@ -31,7 +31,7 @@ public class Ejer7 {
 		for (int i = 0; i < temperatura.length; i++) {
 
 			// Imprimimos la temperatura del mes.
-			System.out.println("La temperatura del mes " + i + 1 + " es " + temperatura[i]);
+			System.out.println("La temperatura del mes " + (i + 1) + " es " + temperatura[i]);
 
 			// Creamos un bucle que imprimirá los asteriscos según el valor del índice
 			// correspondiente.
