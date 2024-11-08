@@ -19,6 +19,9 @@ public class Ejer8 {
 		// usuario.
 		int eleccion = 0;
 
+		// Declaramos la variable booleana para la excepción.
+		boolean error = true;
+
 		// Creamos clase Random.
 		Random rnd = new Random();
 
@@ -38,17 +41,17 @@ public class Ejer8 {
 				eleccion = sc.nextInt();
 			} catch (InputMismatchException e) {
 				System.out.println("Introduce un tipo de valor válido");
-				continue;
+				error = false;
 			}
-		} while (false);
+		} while (error);
 
 		for (int i = 0; i < table.length; i++) {
 			if (eleccion == table[i])
 				System.out.println("Se ha repetido el valor " + eleccion + " en el índice de la tabla " + i);
 		}
-		
+
 		// Cerramos el Scanner.
 		sc.close();
-	
+
 	}
 }
