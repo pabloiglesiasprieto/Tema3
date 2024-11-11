@@ -1,5 +1,6 @@
 package boletin2;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Ejer4 {
@@ -13,6 +14,12 @@ public class Ejer4 {
 		 */
 		// Declaramos la tabla con tamaño 8
 		int tabla[] = new int[8];
+
+		// Declaramos la tabla de tamaño donde almacenaremos la tabla invertida.
+		int reverseTable[] = new int[8];
+
+		// Declaramos la variable que servirá como índice.
+		int indice = 0;
 
 		// Creamos un Scanner.
 		Scanner sc = new Scanner(System.in);
@@ -28,7 +35,7 @@ public class Ejer4 {
 
 			// Creamos un bucle while que le dirá al usuario que introduzca un valor
 			// comprendido entre 1000 y 2800
-			while (tabla[i] <= 1000 || tabla[i] > 2800) {
+			while (tabla[i] < 1000 || tabla[i] > 2800) {
 
 				// Le pedimos al usuario que introduzca un valor correcto.
 				System.out.println("Introduce un valor entre 1000 y 2800");
@@ -38,7 +45,26 @@ public class Ejer4 {
 			}
 
 		}
-		// Ordenamos en orden descendente.
 
+		// Ordenamos en orden ascendente.
+		Arrays.sort(tabla);
+
+		// Creamos un bucle que vaya recorriendo de final a principio el array.
+		for (int i = tabla.length - 1; i >= 0; i--) {
+
+			// Para indice será la variable inicializada en 0, la cual se irá incrementando
+			// asignando los valores a cada posición del array.
+			reverseTable[indice] = tabla[i];
+
+			// Incrementamos el índice.
+			indice++;
+		}
+
+		// Imprimimos la tabla decreciente.
+		System.out.println(Arrays.toString(reverseTable));
+
+		// Cerramos el Scanner.
+		sc.close();
 	}
+
 }
