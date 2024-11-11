@@ -1,7 +1,5 @@
 package boletin2;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class Ejer4 {
@@ -41,6 +39,6 @@ public class Ejer4 {
 
 		}
 		// Ordenamos en orden descendente.
-		
+
 	}
 }
