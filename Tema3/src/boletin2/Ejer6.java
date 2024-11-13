@@ -52,6 +52,8 @@ public class Ejer6 {
 			}
 
 		}
+		System.out.println(Arrays.toString(ganadora));
+		System.out.println(Arrays.toString(apuesta));
 		// Imprimimos el número de aciertos que ha tenido.
 		System.out.println("Has conseguido un total de " + aciertos + " aciertos.");
 
