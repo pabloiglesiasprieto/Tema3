@@ -85,7 +85,7 @@ public class Ejer5 {
 			for (int j = 0; j < tabla[0].length; j++) {
 
 				// Imprime el valor de la celda (i, j) con espacio extra para alineación.
-				System.out.print(tabla[i][j] + "        ");
+				System.out.print(tabla[i][j] + "\t" + "|");
 			}
 
 			// Imprime una nueva línea al final de cada fila para que se vean separadas.
