@@ -8,22 +8,16 @@ public class Ejer4 {
 		 * fila). Muestra la tabla por pantalla.
 		 */
 		// Creamos la tabla 10x10
-		int table[][] = new int[11][11];
-
-		// Declaramos la variable que almacenará el resultado de la multiplicación.
-		int resul;
+		int table[][] = new int[10][10];
 
 		// Creamos un for que irá recorriendo los Arrays.
 		for (int i = 0; i < table.length; i++) {
 
 			// Creamos um for anidado que irá recorriendo los elementos del Array.
-			for (int j = 0; j < table[0].length; j++) {
-
-				// Le damos a la variable resul el resultado de la multiplicación de i*j.
-				resul = j * i;
+			for (int j = 1; j < table[0].length; j++) {
 
 				// Imprimimos la multiplicación
-				System.out.print(i + " x " + j + " = " + resul + " | ");
+				System.out.print(i + 1 + " x " + (j + 1) + " = " + (i + 1) * (j+1) + "   |   ");
 
 			}
 			// Imprimimos un salto de página.
