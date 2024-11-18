@@ -1,53 +1,50 @@
 package english;
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Exercise3 {
 	public static void main(String[] args) {
-		/*
-		 * Where is the fly? We’re trying to catch a fly. The fly will choose randomly a
-		 * position in our array and we’ll have to guess the position where the fly is.
-		 * The program will ask the user the position where he/she thinks the fly is. If
-		 * the position is right, then the player wins and the program finishes. If it
-		 * isn’t right, then it can happen two things: The fly is in a contiguous
-		 * position. Then it flies to another position. The program must tell the player
-		 * that it was close but the fly changed its position. The fly is not in a
-		 * contiguous position, then the fly stays where it is. The program must tell
-		 * the player that the fly is far away from that position. The size of the array
-		 * will be 10, but it can be changed.
-		 */
-		// Declarate and add the initial value of the length of the array.
+		// Here we store the length of the array
 		int length = 10;
 
-		// Declarate the position where the fly is.
+		// Variable to store the position of the fly
 		int position;
 
-		// Declarate the variable that will store the user's guessing.
+		// User's input to guess the number
 		int guess = 0;
 
-		// Create the Table.
-		int table[] = new int[length];
+		// Boolean that will stay true until the game ends
+		boolean play = true;
 
-		// Create Random.
+		// Array with 10 positions
+		int[] table = new int[length];
+
+		// Random number generator
 		Random rnd = new Random();
 
-		// Set position a value between 0-9
-		position = rnd.nextInt(0, 10);
+		// The position where the fly is located
+		position = rnd.nextInt(length);
 
-		// Create Scanner.
+		// Where put a 1 on the array to determine that the fly is there (The rest is
+		// filled with 0).
+		table[position] = 1;
+
+		// Create a Scanner.
 		Scanner sc = new Scanner(System.in);
 
+		// Create a do-while that will continue until the game is over.
 		do {
 
+			// Ask the user where he thinks the fly is.
 			System.out.println("Where do you think the fly is?");
 
-			// Read user's input
+			// Read user's input.
 			guess = sc.nextInt();
 
-			// If the user introduced a wrong value enter the loop
-			while (guess < 0 || guess > table.length) {
+			// If the user's input is above or under the length of the array, it will ask
+			// the user to add a correct value.
+			while (guess < 0 || guess >= length) {
 
 				// Tell the user to introduce a correct value.
 				System.out.println("Introduce a value between 0 and " + (length - 1));
@@ -55,33 +52,41 @@ public class Exercise3 {
 				// Read user's input.
 				guess = sc.nextInt();
 			}
-			if (guess <= 0) {
-				if (table[guess + 1] == 1) {
-					System.out.println("The fly was in a contiguous position but the flew away.");
-					table[position] = 0;
-					length++;
-					position = rnd.nextInt(0, table.length - 1);
-					table[position] = 1;
-				}
-			}
+			// If the user guessed the position on the fly, then it will enter the if.
+			if (guess == position) {
 
-			if (table[guess + 1] == 1 || table[guess - 1] == 1) {
+				// Print that you won.
+				System.out.println("You Won!");
 
-				System.out.println("The fly was in a contiguous position but the flew away.");
+				// Set play to false (end the loop).
+				play = false;
+
+				// If the guess is above or under the position of the fly, it will enter the if.
+			} else if (guess == position - 1 || guess == position + 1) {
+
+				// Tell the user that the fly was in a contiguous position.
+				System.out.println("The fly was in a contiguous position but it flew away.");
+
+				// Set the position of the fly to 0 (It isn't there anymore)
 				table[position] = 0;
-				length++;
-				position = rnd.nextInt(0, table.length - 1);
+
+				// Generate a random position between 0 and the length.
+				position = rnd.nextInt(length);
+
+				// Set to 1 the value (The fly is there)
 				table[position] = 1;
+
+				// If the if statement is false, then it will enter the else statement
 			} else {
+
+				// Print that the fly is far away.
 				System.out.println("The fly is far away.");
 			}
 
-			// The game will finish when the user guess is right.
-		} while (table[guess] != 1);
+			// Do-while
+		} while (play);
 
-		// Print that the user won.
-		System.out.println("You Won!");
-
+		// Close the Scanner.
+		sc.close();
 	}
-
 }
