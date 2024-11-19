@@ -1,4 +1,4 @@
-package funciones;
+package arrayFunciones;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package funciones;
+package arrayFunciones;
 
 public class Ejer1 {
 	public static void main(String[] args) {
