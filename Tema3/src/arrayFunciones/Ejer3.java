@@ -51,7 +51,7 @@ public class Ejer3 {
 		for (int i = 0; i < tabla.length; i++) {
 
 			// Generamos numeros aleatorios hasta fin.
-			tabla[i] = rnd.nextInt(2, fin) + 1;
+			tabla[i] = rnd.nextInt(2, fin + 1);
 
 			// Si el valor no es par, entrará en el condicional.
 			if (tabla[i] % 2 != 0) {
