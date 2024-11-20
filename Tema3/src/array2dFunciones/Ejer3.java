@@ -5,13 +5,6 @@ import java.util.Scanner;
 
 public class Ejer3 {
 	public static void main(String[] args) {
-		/*
-		 * Define una función que reciba una tabla bidimensional y devuelva un booleano
-		 * para indicar si la matriz es o no simétrica. Una matriz se dice que es
-		 * simétrica si A[i][j] = A[j][i] para todo i, j dentro de los límites de la
-		 * matriz. Delfine un método main que llame a la función y muestre por pantalla
-		 * el resultado, indicando si la tabla pasada por parámetro es simétrica o no.
-		 */
 		// Declaramos la tabla.
 		int tabla[][];
 
@@ -28,47 +21,50 @@ public class Ejer3 {
 		Random rnd = new Random();
 
 		// Le preguntamos al usuario el número de columnas
-		System.out.println("Cual será el número de columnas");
+		System.out.println("Cual será el número de columnas/filas");
 
 		// Leemos entrada de teclado
 		columnas = sc.nextInt();
 
-		// Le preguntamos al usuario el número de filas
-		System.out.println("Cual será el número de filas");
-
-		// Leemos entrada de teclado
-		filas = sc.nextInt();
-		while (filas < 2) {
-			System.out.println("Las filas tienen que ser mayor que 2");
-			filas = sc.nextInt();
-		}
+		// Asignamos la cantidad de columnas a filas
+		filas = columnas;
 
 		// Creamos la tabla con las longitudes determinadas
 		tabla = new int[filas][columnas];
 
 		// Creamos un bucle que irá recorriendo los arrays.
 		for (int i = 0; i < tabla.length; i++) {
+
+			// Creamos un bucle que irá recorriendo los indices del array.
 			for (int j = 0; j < tabla[0].length; j++) {
-				tabla[i][j] = rnd.nextInt(0, 2);
+				tabla[i][j] = rnd.nextInt(2); // Genera números aleatorios entre 0 y 1
 			}
 		}
+		// Imprimimos si la tabla es simetrico o no con un ternario.
 		System.out.println(simetric(tabla) ? "Simetrica" : "No simetrica");
+
+		// Cerramos el Scanner.
+		sc.close();
 	}
 
+	// Creamos una función booleana.
 	static boolean simetric(int tabla[][]) {
-		boolean simetric = true;
-		while (simetric) {
-			for (int i = 0; i < tabla.length; i++) {
-				for (int j = 0; j < tabla[0].length; j++) {
-					if (tabla[i][j] != tabla[j][i]) {
-						simetric = false;
-					}
+
+		// Recorremos los array de array
+		for (int i = 0; i < tabla.length; i++) {
+
+			// Recorremos los indices del array
+			for (int j = 0; j < tabla[0].length; j++) {
+
+				// Si la tabla es asimetrica por una parte, se para la función y devolvemos
+				// false.
+				if (tabla[i][j] != tabla[j][i]) {
+					return false;
 				}
-
 			}
-
 		}
-		return simetric;
-
+		// Si no se mete en el condicional ni 1 vez, significa que la tabla es
+		// simétrica.
+		return true;
 	}
 }

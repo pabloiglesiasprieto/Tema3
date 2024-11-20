@@ -28,7 +28,7 @@ public class Ejer5 {
 		for (int i = 0; i < tabla.length; i++) {
 
 			// Generamos numeros aleatorios hasta fin.
-			tabla[i] = rnd.nextInt(1, 100) + 1;
+			tabla[i] = rnd.nextInt(1, 11) + 1;
 		}
 
 		// Le preguntamos al usuario el valor a buscar.

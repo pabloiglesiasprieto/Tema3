@@ -72,6 +72,9 @@ public class Ejer2 {
 			}
 			// Creamos un salto de página para diferenciar los arrays.
 			System.out.println();
+
+			// Cerramos el Scanner.
+			sc.close();
 		}
 	}
 
