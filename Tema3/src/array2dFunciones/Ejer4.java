@@ -49,8 +49,10 @@ public class Ejer4 {
 			for (int j = 0; j < tabla[0].length; j++) {
 
 				// Generamos valores aleatorios para cada indice del array.
-				tabla[i][j] = rnd.nextInt(0, 10 + 1);
+				tabla[i][j] = rnd.nextInt(1, 3);
+				System.out.print(tabla[i][j] + "\t");
 			}
+			System.out.println();
 
 		}
 		// Imprimimos si la tabla es mágica o no.
@@ -65,15 +67,24 @@ public class Ejer4 {
 		// Creamos la variable que servirá para contador de indices
 		int array = 0;
 
-		// Creamos la variable que almacenará las sumas.
+		// Creamos la variable que almacenará las sumas de la primera fila.
+		int sumaPrimerFila = 0;
+
 		int suma = 0;
 
 		// Creamos la variable que almacenará la suma anterior
 		int sumaAnterior = 0;
 
+		// Creamos un for que irá recorriendo los índices del array.
+		for (int i = 0; i < tabla[0].length; i++) {
+
+			// Vamos sumando los elementos del array a la suma.
+			sumaPrimerFila += tabla[array][i];
+		}
+
 		// Creamos un while que irá recorriendo el array hasta que se llegue a la
 		// longitud del array y la tabla no sea mágica.
-		while (magic && array < tabla.length) {
+		while (magic && array<tabla.length) {
 
 			// Creamos un for que irá recorriendo los índices del array.
 			for (int i = 0; i < tabla[0].length; i++) {
@@ -81,22 +92,13 @@ public class Ejer4 {
 				// Vamos sumando los elementos del array a la suma.
 				suma += tabla[array][i];
 			}
-			// Si la suma anterior es distinto a la suma, ponemos el booleano en false.
-			if (sumaAnterior != suma) {
-
-				// Ponemos el booleano en false.
+			if (sumaPrimerFila != suma) {
 				magic = false;
+			} else {
+				array++;
 			}
-			// Asignamos la suma a suma anterior.
-			sumaAnterior = suma;
-
-			// Ponemos a 0 la suma.
 			suma = 0;
-
-			// Incrementamos el array.
-			array++;
 		}
-		// Devolvemos el valor booleano.
 		return magic;
 	}
 }
