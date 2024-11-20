@@ -18,6 +18,9 @@ public class Ejer3 {
 		// Creamos la variable que almacenará el fin de los valores.
 		int fin;
 
+		// Declaramos la tabla donde almacenaremos la tabla de la función.
+		int t[];
+
 		// Creamos un Scanner.
 		Scanner sc = new Scanner(System.in);
 
@@ -34,7 +37,10 @@ public class Ejer3 {
 		fin = sc.nextInt();
 
 		// Enviamos los valores a la función.
-		rellenaPares(longitud, fin);
+		t = rellenaPares(longitud, fin);
+
+		// Imprimimos la tabla
+		System.out.println(Arrays.toString(t));
 
 	}
 
@@ -63,9 +69,6 @@ public class Ejer3 {
 		}
 		// Ordenamos la tabla.
 		Arrays.sort(tabla);
-
-		// Imprimimos la tabla
-		System.out.println(Arrays.toString(tabla));
 
 		// Devolvemos la tabla.
 		return tabla;
