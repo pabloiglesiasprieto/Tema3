@@ -62,10 +62,10 @@ public class Ejer2 {
 		System.out.println("Tabla modificada:");
 
 		// Creamos un bucle que irá recorriendo los Arrays.
-		for (int i = 0; i < tabla.length; i++) {
+		for (int i = 0; i < tablamod.length; i++) {
 
 			// Creamos un bucle que irá recorriendo los índices del array.
-			for (int j = 0; j < tabla.length; j++) {
+			for (int j = 0; j < tablamod[0].length; j++) {
 
 				// Imprimimos la tabla.
 				System.out.print(tablamod[i][j] + "\t");
@@ -73,15 +73,15 @@ public class Ejer2 {
 			// Creamos un salto de página para diferenciar los arrays.
 			System.out.println();
 
-			// Cerramos el Scanner.
-			sc.close();
 		}
+		// Cerramos el Scanner.
+		sc.close();
 	}
 
 	// Creamos la función trasponer.
 	static int[][] trasponer(int tabla[][]) {
 		// Creamos el Array con las filas y columnas determinadas.
-		int tablamod[][] = new int[tabla.length][tabla[0].length];
+		int tablamod[][] = new int[tabla[0].length][tabla.length];
 
 		// Creamos un bucle que irá recorriendo los arrays de la tabla
 		for (int i = 0; i < tabla.length; i++) {

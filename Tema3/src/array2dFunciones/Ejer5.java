@@ -72,6 +72,8 @@ public class Ejer5 {
 			// Hacemos un salto de página.
 			System.out.println();
 		}
+		// Cerramos el Scanner
+		sc.close();
 	}
 
 	// Creamos la función trasponer.
