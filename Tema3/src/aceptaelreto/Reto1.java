@@ -67,16 +67,17 @@ public class Reto1 {
 			}
 		}
 		for (int i = 1; i < semanales.length; i++) {
-			if (semanales[i] < max) {
+			if (semanales[i] > max) {
 
-				max = semanales[i];
+				max = i;
 			}
 
 			if (semanales[i] < min) {
 
-				min = semanales[i];
+				min = i;
 			}
 		}
-		System.out.println("El valor máximo de la semana es: ");
+		System.out.println("El valor máximo de la semana es: " + semanales[max]);
+		System.out.println("El valor mínimo de la semana es: " + semanales[min]);
 	}
 }

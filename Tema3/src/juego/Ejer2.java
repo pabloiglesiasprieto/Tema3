@@ -33,8 +33,17 @@ public class Ejer2 {
 		for (int i = 0; i < tabla.length; i++) {
 			tabla[i] = i;
 		}
-		
-		System.out.println(Arrays.toString(desordenar()));
+		// Imprimimos la tabla
+		System.out.println(Arrays.toString(tabla));
+
+		// Llamamos a la función
+		desordenar(tabla);
+
+		// Imprimimos la tabla
+		System.out.println(Arrays.toString(tabla));
+
+		// Cerramos Scanner.
+		sc.close();
 	}
 
 	// Creamos una función que desordena el array.
@@ -42,15 +51,18 @@ public class Ejer2 {
 		// Creamos un random
 		Random rnd = new Random();
 
-		// Creamos la tabla.
-		int tablaDesordenada[] = new int[tabla.length];
+		// Creamos un bucle que irá recorriendo el array.
+		for (int i = tabla.length - 1; i > 0; i--) {
 
-		// Creamos un bucle que irá desordenando la tabla.
-		for (int i = 0; i < tabla.length; i++) {
+			// Asignamos un valor a j.
+			int j = rnd.nextInt(i + 1);
 
-			tabla[i] = tablaDesordenada[rnd.nextInt(0, tabla.length - 1)];
+			// Intercambiar array[i] con array[j]
+			int temp = tabla[i];
+			tabla[i] = tabla[j];
+			tabla[j] = temp;
 		}
-
-		return tablaDesordenada;
+		// Devolvemos la tabla.
+		return tabla;
 	}
 }

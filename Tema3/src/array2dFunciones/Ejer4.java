@@ -62,7 +62,9 @@ public class Ejer4 {
 	// Creamos la función que determinará si la tabla es mágica.
 	static boolean magicTable(int tabla[][]) {
 		// Creamos la variable que determinará si la tabla es magica
-		boolean magic = true;
+		boolean magicVert = true;
+		boolean magicCol = true;
+		boolean magic;
 
 		// Creamos la variable que servirá para contador de indices
 		int array = 0;
@@ -70,10 +72,14 @@ public class Ejer4 {
 		// Creamos la variable que almacenará las sumas de la primera fila.
 		int sumaPrimerFila = 0;
 
-		int suma = 0;
+		// Creamos una variable que almacenará las sumas de la primera columnas
+		int sumaPrimerCol = 0;
 
-		// Creamos la variable que almacenará la suma anterior
-		int sumaAnterior = 0;
+		int sumaVert = 0;
+
+		int sumaCol = 0;
+
+		int indice = 0;
 
 		// Creamos un for que irá recorriendo los índices del array.
 		for (int i = 0; i < tabla[0].length; i++) {
@@ -81,24 +87,45 @@ public class Ejer4 {
 			// Vamos sumando los elementos del array a la suma.
 			sumaPrimerFila += tabla[array][i];
 		}
+		for (int i = 0; i < tabla.length; i++) {
+			sumaPrimerCol += tabla[i][0];
+		}
 
 		// Creamos un while que irá recorriendo el array hasta que se llegue a la
 		// longitud del array y la tabla no sea mágica.
-		while (magic && array<tabla.length) {
+		while (magicVert && array < tabla.length) {
 
 			// Creamos un for que irá recorriendo los índices del array.
 			for (int i = 0; i < tabla[0].length; i++) {
 
 				// Vamos sumando los elementos del array a la suma.
-				suma += tabla[array][i];
+				sumaVert += tabla[array][i];
 			}
-			if (sumaPrimerFila != suma) {
-				magic = false;
+
+			if (sumaPrimerFila != sumaVert) {
+				magicVert = false;
 			} else {
 				array++;
 			}
-			suma = 0;
+			sumaVert = 0;
 		}
+		while (magicCol && array < tabla.length) {
+
+			// Creamos un for que irá recorriendo los índices del array.
+			for (int i = 0; i < tabla.length; i++) {
+
+				// Vamos sumando los elementos del array a la suma.
+				sumaCol += tabla[i][indice];
+			}
+
+			if (sumaPrimerCol != sumaCol) {
+				magicCol = false;
+			} else {
+				indice++;
+			}
+			sumaCol = 0;
+		}
+		magic = magicCol && magicVert;
 		return magic;
 	}
 }
