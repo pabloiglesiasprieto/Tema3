@@ -27,7 +27,7 @@ public class Ejer1 {
 			suma += tabla[i];
 		}
 		// Devolvemos la suma.
-		return suma;
+		return sumaa;
 	}
 
 }
