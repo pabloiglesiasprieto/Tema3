@@ -46,13 +46,27 @@ public class Ejer4 {
 
 		// Leemos entrada de teclado.
 		eleccion = sc.next().toUpperCase();
+		// Creamos un bucle que irá recorriendo las filas del array.
+		for (int i = 0; i < tablero.length; i++) {
 
+			// Creamos un for que irá recorriendo los elementos del array.
+			for (int j = 0; j < tablero[0].length; j++) {
+
+				tablero[i][j] = '-';
+
+			}
+		}
+		// Imprimimos un salto de página
+		System.out.println();
 		// Creamos un switch
 		switch (eleccion) {
 
 		// Si la eleccion del usuario es la torre, llamamos a la función
 		case "T" -> {
 			torreMov(tablero, posFila, posCol);
+		}
+		case "C" -> {
+			caballoMov(tablero, posFila, posCol);
 		}
 		}
 
@@ -69,7 +83,6 @@ public class Ejer4 {
 			// Imprimimos un salto de página
 			System.out.println();
 		}
-
 	}
 
 	// Creamos la función que simulará el movivmiento de las torres
@@ -104,12 +117,14 @@ public class Ejer4 {
 	}
 
 	// Creamos una función que represente los movimientos del caballo
-	static int[][] caballoMov(int tablero[][], int posFila, int posCol) {
+	static char[][] caballoMov(char tablero[][], int posFila, int posCol) {
 
-		// Colocamos en el tablero la torre
+		// Colocamos en el tablero el caballo
 		tablero[posFila - 1][posCol - 1] = 'C';
-		
-		
+		tablero[posFila - 2][posCol + 1] = 'x';
+		tablero[posFila - 2][posCol - 3] = 'x';
+		tablero[posFila + 2][posCol + 1] = 'x';
+		tablero[posFila + 2][posCol - 3] = 'x';
 
 		return tablero;
 	}
