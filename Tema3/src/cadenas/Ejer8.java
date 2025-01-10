@@ -30,6 +30,9 @@ public class Ejer8 {
 
 		// Imprimimos el array.
 		System.out.println(Arrays.toString(frase));
+
+		// Cerramos el Scanner.
+		sc.close();
 	}
 
 	// Creamos función que ordenará la palabra.

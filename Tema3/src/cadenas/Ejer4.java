@@ -27,6 +27,9 @@ public class Ejer4 {
 
 		// Imprimimos la cadena al revés.
 		System.out.println("Reversed: " + reversed);
+
+		// Cerramos el Scanner.
+		sc.close();
 	}
 
 	// Creamos una función que invertirá la cadena.

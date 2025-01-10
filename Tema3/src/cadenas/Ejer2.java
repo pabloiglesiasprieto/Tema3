@@ -63,5 +63,8 @@ public class Ejer2 {
 		}
 		// Imprimimos que el usuario ha adivinado la contraseña
 		System.out.println("¡Ganó el segundo jugador!");
+
+		// Cerramos el Scanner.
+		sc.close();
 	}
 }
