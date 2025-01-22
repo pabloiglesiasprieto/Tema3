@@ -1,7 +1,8 @@
 package collections;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
-import java.util.TreeSet;
 
 public class Ejer3 {
 	public static void main(String[] args) {
@@ -11,7 +12,7 @@ public class Ejer3 {
 		 * ordenada. Pinta la colección por consola una vez rellena.
 		 */
 		// Creamos la lista ordenada.
-		TreeSet<Integer> lista = new TreeSet<Integer>();
+		ArrayList<Integer> lista = new ArrayList<Integer>();
 
 		// Creamos un Random
 		Random rnd = new Random();
@@ -28,6 +29,9 @@ public class Ejer3 {
 			// Añadimos el valor a la coleccion.
 			lista.add(valores);
 		}
+		// Ordenamos la lista.
+		Collections.sort(lista);
+
 		// Imprimimos la lista.
 		System.out.print("En la lista se encuentran los siguientes valores: ");
 
