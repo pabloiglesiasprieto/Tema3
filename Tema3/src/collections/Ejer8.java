@@ -39,7 +39,7 @@ public class Ejer8 {
 		String valor;
 
 		// Creamos una variable que servirá como contador de intentos.
-		int intentos;
+		int intentos = 0;
 
 		// Añadimos valores al diccionario.
 		diccionario.put("admin", "admin");
@@ -60,7 +60,7 @@ public class Ejer8 {
 			switch (eleccion) {
 
 			// Primer caso.
-			case 1: {
+			case 1 -> {
 
 				// Le pedimos al usuario el nombre de usuario.
 				System.out.println("Introduce el nombre de usuario.");
@@ -81,32 +81,62 @@ public class Ejer8 {
 				break;
 			}
 			// Segundo caso.
-			case 2: {
+			case 2 -> {
 
-				// Le pedimos al usuario el nombre de usuario.
-				System.out.println("Introduce el nombre de usuario.");
+				// Creamos un do-while para los intentos.
+				do {
 
-				// Leemos entrada de teclado.
-				clave = sc.nextLine();
+					// Le pedimos al usuario el nombre de usuario.
+					System.out.println("Introduce el nombre de usuario.");
 
-				// Le pedimos al usuario la contraseña.
-				System.out.println("Introduce la contraseña");
+					// Leemos entrada de teclado.
+					clave = sc.nextLine();
 
-				// Leemos entrada de teclado.
-				valor = sc.nextLine();
+					// Le pedimos al usuario la contraseña.
+					System.out.println("Introduce la contraseña");
 
-				// Rompemos el case.
-				break;
+					// Leemos entrada de teclado.
+					valor = sc.nextLine();
+
+					// Comprobamos si el valor existe en el diccionario.
+					if (diccionario.containsKey(clave) && diccionario.get(clave).equals(valor)) {
+
+						// Imprimimos que el usuario se ha logueado de manera correcta.
+						System.out.println("Has iniciado sesión correctamente.");
+
+						// Rompemos el case.
+						break;
+
+						// Si la entrada no existe en el diccionario, se aumentará el intentos.
+					} else {
+
+						// Incrementamos los intentos.
+						intentos++;
+
+						// Imprimimos que el usuario se ha equivocado.
+						System.out.println("Te equivocaste.");
+					}
+
+					// Mientras que los intentos no sean 3.
+				} while (intentos != 3);
 
 			}
-
 			}
+			// Imprimimos un salto de línea.
+			System.out.println();
+
 			// Le pedimos al usuario que acción quiere realizar.
 			System.out.println("Que acción quieres realizar. \n" + "1. Registro\n" + "2. Login\n" + "0. Salir");
 
 			// Leemos entrada de teclado.
 			eleccion = sc.nextInt();
+
+			// Limpiamos buffer de entrada.
+			sc.nextLine();
 		}
+
+		// Cerramos el Scanner.
+		sc.close();
 
 	}
 }
