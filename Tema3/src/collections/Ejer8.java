@@ -116,6 +116,11 @@ public class Ejer8 {
 						// Imprimimos que el usuario se ha equivocado.
 						System.out.println("Te equivocaste.");
 					}
+					// Si los intentos son 3, entrará en el condicional.
+					if (intentos==3)
+						
+						// Imprimimos la salida del menú.
+						System.out.println("Lo siento, no tiene acceso al área restringida");
 
 					// Mientras que los intentos no sean 3.
 				} while (intentos != 3);
