@@ -1,5 +1,7 @@
 package collections;
 
+import java.util.TreeMap;
+
 public class Ejer13 {
 	public static void main(String[] args) {
 		/*
@@ -13,5 +15,11 @@ public class Ejer13 {
 		 * seco, desnudo y arenoso, sin nada en que sentarse o que comer: era un
 		 * agujero-hobbit, y eso significa comodidad"
 		 */
+		// Creamos un mapa para almacenar los chars.
+		TreeMap<Character, Integer> lista = new TreeMap<>();
+		
+		Character.isLetter(0)
+
 	}
+
 }
